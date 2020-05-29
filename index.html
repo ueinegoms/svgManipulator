@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Components Showcase</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/style.js"></script>
+
+    <!-- REQUIREMENTS FOR JSMAPS.IO -->
+    <!-- Jquery is required, embed on your page if not already - don't embed 2 versions -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!-- End Jquery -->
+
+    <!-- Map scripts - add the below to your page -->
+    <!-- jsmaps-panzoom.js is optional if you are using enablePanZoom -->
+    <link href="jsmaps/jsmaps.css" rel="stylesheet" type="text/css" />
+    <script src="jsmaps/jsmaps-libs.js" type="text/javascript"></script>
+    <script src="jsmaps/jsmaps-panzoom.js"></script>
+    <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
+    <script src="maps/northAmerica.js" type="text/javascript"></script>
+    <!-- End Map scripts -->
+</head>
+
+<body>
+    <div id="grid-container">
+        <div id="header">
+            <span class="span-primary bold pdng-l">SVG Manipulation Prototype</span>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="#"><i class="material-icons">home</i> Home</a></li>
+                <li><a href="#"><i class="material-icons">build</i> Administrativo</a></li>
+                <li><a href="#"><i class="material-icons">email</i> Contatar</a></li>
+                <li><a href="#"><i class="material-icons">help</i> Ajuda</a></li>
+            </ul>
+        </div>
+        <div id="container">
+            <div class="m4 b5 vb6">
+                <h2>Protótipo de manipulação de vetores online</h2>
+                <p></p>
+            </div>
+            <hr>
+            <div class="m4 b5 vb6" style="overflow: hidden;">
+                <!-- Map html - add the below to your page -->
+                <div class="jsmaps-wrapper" id="northAmerica-map" style="width: 100%; color: #000;"></div>
+                <!-- End Map html -->
+                <!-- <select id="northAmerica-map-select">
+                    <option selected>Choose an option</option>
+                    <option value="Teste1">Teste1</option>
+                    <option value="Teste2">Teste2</option>
+                </select> -->
+            </div>
+            <div class="m4 b5 vb6">
+                <button type="button" id="reset-button" onclick="document.getElementById('indisponivel').style.display = 'none'; replaceTheIndisponibleBitch();">Limpar Seleção</button>
+                <button type="button" id="indisponivel" style="display: none">Deixar Indisponível</button>                
+            </div>
+            <script type="text/javascript">
+
+                // $(function () {
+
+                //     $('#northAmerica-map').JSMaps({
+                //         map: 'northAmerica',
+                //         onReady: function () {
+                //             // $('#northAmerica-map-select').on('change', function () {
+                //             //     $('#northAmerica-map').trigger('stateClick', this.value);
+                //             // });
+                //             $('#reset-button').on('click', function () {
+                //                 $('#northAmerica-map').trigger('stateUnClick');
+                //             });
+                //         },
+                //         onStateClick: function (data) {
+                //             if (event.type == 'click') { // or if event.target.tagName is path/circle
+                //                 // Interaction by user
+                //                 console.log(data);
+                //             }
+                //             $('#northAmerica-map-select').val(data.name);
+                //         }
+                //     });
+
+                // });
+
+            </script>
+            <hr>
+            <!-- <div class="m4 b5 vb6">
+                <label class="bold">Example form</label>
+            </div>
+            <div class="m1 b1 vb1">
+                <label>Input Standalone</label>
+            </div>
+            <div class="m3 b4 vb5">
+                <input />
+            </div>
+            <div class="m4 b5 vb6">
+                <div class="inputgrouphorizontal"> -->
+                    <!--ou apenas inputgroup-->
+                    <!-- <label>Input Group <span class="muted"> Horizontal</span></label>
+                    <input />
+                </div>
+            </div>
+            <div class="m4 b5 vb6">
+                <div class="inputgrouphorizontal"> -->
+                    <!--ou apenas inputgroup-->
+                    <!-- <label>Input Group 2</label>
+                    <input />
+                </div>
+            </div>
+            <div class="m2 b3 vb3">
+                <div class="inputgroupvertical">
+                    <label>Input Group Vertical</label>
+                    <input placeholder="Placeholder exemple" />
+                </div>
+            </div>
+            <div class="m2 b2 vb3">
+                <div class="inputgroupvertical">
+                    <label>Input Group Vertical</label>
+                    <input />
+                </div>
+            </div>
+            <div class="m4 b5 vb6">
+                <div class="inputgroup">
+                    <button type="button" class="btn-success"
+                        onclick="openModal(document.getElementById('modalExemplo'))">Modal Smooth</button>
+                    <button type="button" class="btn-failure"
+                        onclick="openModal(document.getElementById('modalExemplo2'))">Modal</button>
+                    <button type="button" onclick="openModal(document.getElementById('modalExemploLocked'))">Modal
+                        Locked</button>
+                    <button type="button">Teste</button>
+                    <button type="button" class="btn-success muted">Teste</button>
+                    <button type="button" class="btn-failure muted">Teste</button>
+                    <button type="button" class="muted ">Teste</button>
+                </div>
+            </div> -->
+            <div class="m4 b5 vb6">
+                <table class="table-full">
+                    <tr>
+                        <th style="width: 20px;">#</th>
+                        <th>Lote</th>
+                        <th>Status</th>
+                        <!-- <th>Testeeeeeeeeeeeeeee3</th>
+                        <th>Testeeeeeeeeeeeeeee4</th>
+                        <th>Testeeeeeeeeeeeeeee5</th>
+                        <th>Testeeeeeeeeeeeeeee6</th> -->
+                    </tr>
+                    <tr class="lote" data-id="1">
+                        <td>1</td>
+                        <td>Lote 1</td>
+                        <td id="disponibilidade1">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="2">
+                        <td>2</td>
+                        <td>Lote 2</td>
+                        <td id="disponibilidade2">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="3">
+                        <td>3</td>
+                        <td>Lote 3</td>
+                        <td id="disponibilidade3">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="4">
+                        <td>4</td>
+                        <td>Lote 4</td>
+                        <td id="disponibilidade4">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="5">
+                        <td>5</td>
+                        <td>Lote 5</td>
+                        <td id="disponibilidade5">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="6">
+                        <td>6</td>
+                        <td>Lote 6</td>
+                        <td id="disponibilidade6">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="7">
+                        <td>7</td>
+                        <td>Lote 7</td>
+                        <td id="disponibilidade7">Disponível</td>
+                    </tr>
+                    <tr class="lote" data-id="8">
+                        <td>8</td>
+                        <td>Lote 8</td>
+                        <td id="disponibilidade8">Disponível</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script>
+            var mapData;
+            $(function () {
+
+                $('#northAmerica-map').JSMaps({
+                    map: 'northAmerica',
+                    onReady: function () {
+                        // $('#northAmerica-map-select').on('change', function () {
+                        //     $('#northAmerica-map').trigger('stateClick', this.value);
+                        // });
+                        // $('lote').each(function( index ) {
+                        //     // console.log( index + ": " + $( this ).text() );
+                        //     console.log($(this).data.id);
+                        //     $(this).on('click', function() {
+                        //         $('#northAmerica-map').trigger('stateClick', $(this).data.id);
+                        //     })
+                        // });
+                        mapData = window.JSMaps.maps.northAmerica;
+
+
+                        var lotes = document.getElementsByClassName('lote');
+                        for (let i=0; i< lotes.length; i++){
+                            console.log('foi');
+                            id = lotes.item(i).dataset.id;
+                            lotes.item(i).addEventListener('click',function(){
+                                $('#northAmerica-map').trigger('stateClick', 'Lote '+lotes.item(i).dataset.id);
+                                console.log('Lote '+lotes.item(i).dataset.id);
+                            })
+                        }
+
+                        $('#reset-button').on('click', function () {
+                            $('#northAmerica-map').trigger('stateUnClick');
+                        });
+                    },
+                    onStateClick: function (data) {
+                        if (event.type == 'click') { // or if event.target.tagName is path/circle
+                            // Interaction by user
+                            console.log(data);
+                            replaceTheIndisponibleBitch();
+                            document.getElementById('indisponivel').innerHTML = 'Deixar ' + data.name + ' indisponível';
+                            document.getElementById('indisponivel').style.display = 'block';
+                            document.getElementById('indisponivel').addEventListener('click', function(){
+                                // disponibilidade8
+                                document.getElementById('disponibilidade'+data.name[data.name.length-1]).innerHTML = 'Indisponível';
+                                mudarCorMapa(data.name[data.name.length-1]);
+                            });
+                        }
+                        $('#northAmerica-map-select').val(data.name);
+                    }
+                });
+
+            });
+
+            function mudarCorMapa(itemMapa){
+                for(let i = 0; i < mapData.paths.length; i++){
+                    if (mapData.paths[i].name == 'Lote '+itemMapa){
+                        mapData.paths[i].color = '#bf3d3d';
+                        console.log('lote: Lote ' + itemMapa + ' / cor: '+ mapData.paths[i].color);
+                    }
+                    // console.log('lote: Lote ' + itemMapa + ' / cor: '+ mapData.paths[i].color);
+                }
+                $('#northAmerica-map').trigger('reDraw', mapData);
+            }
+            function replaceTheIndisponibleBitch(){
+                var old_element = document.getElementById("indisponivel");
+                var new_element = old_element.cloneNode(true);
+                old_element.parentNode.replaceChild(new_element, old_element);
+            }
+        </script>
+        <div id="footer">
+            Footer
+        </div>
+        <!--
+        <div id="teste" class="modal-smooth showing">
+        -->
+        <div id="modalExemploLocked" class="modal-locked showing">
+            <div class="modal-content" style="max-width: 420px">
+                <div class="m4 b5 vb6">
+                    <h3>Login</h3>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+                </div>
+                <div class="m4 b5 vb6">
+                    <button type="button" class="btn-success marginl0"
+                        onclick="modalToggle(document.getElementById('modalExemploLocked'))">Logar</button>
+                    <button type="button" class="btn-failure marginl0">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalExemplo" class="modal-smooth">
+            <div class="modal-content w-max-1024">
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <button type="button" class="btn-failure marginl0"
+                        onclick="openModal(document.getElementById('modalExemplo2'))">Teste</button>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalExemplo2" class="modal">
+            <div class="modal-content w-max-1024">
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="m4 b5 vb6">
+                    <h3>Teste coisas</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+        <div id="navFull"></div>
+    </div>
+    <script>
+// É assim que se abre uma modal
+// openModal(document.getElementById('modalExemplo'));
+// openModal(document.getElementById('modalExemplo2'));
+    </script>
+</body>
+
+</html>
